@@ -1,0 +1,11 @@
+BEGIN;
+
+DROP TABLE IF EXISTS authors;
+
+DROP TABLE IF EXISTS categories;
+
+DROP TABLE IF EXISTS posts_categories;
+
+DROP TABLE IF EXISTS posts;
+
+COMMIT;
