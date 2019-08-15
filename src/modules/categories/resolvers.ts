@@ -1,10 +1,7 @@
 export const CategoryResolver = {
   Post: {
-    categories: () => [
-      {
-        name: "Apple",
-        slug: "apple"
-      }
-    ]
-  }
+    categories: (obj, args, ctx) => {
+      return ctx.repositories.category.getByPost(obj.id);
+    },
+  },
 };

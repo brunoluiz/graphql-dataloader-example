@@ -1,0 +1,33 @@
+version: '2.3'
+
+services:
+  # api:
+    # build: .
+    # command: npm run watch
+    # ports:
+      # - "4000:4000"
+      # - "9229:9229"
+      # - "9230:9230"
+    # volumes:
+      # - .:/opt/app:delegated
+      # - ./package.json:/opt/package.json
+      # - ./package-lock.json:/opt/package-lock.json
+      # - notused:/opt/app/node_modules
+    # environment:
+      # - NODE_ENV=development
+      # - PGHOST=postgres
+      # - PGDATABASE=app
+      # - PGUSER=app
+      # - PGPASSWORD=app
+    # depends_on:
+      # - postgres
+# 
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=app
+volumes:
+  notused:

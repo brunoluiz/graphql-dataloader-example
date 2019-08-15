@@ -1,14 +1,7 @@
 export const PostResolver = {
   Query: {
-    posts: () => [
-      {
-        id: "p1",
-        title: "Title 1"
-      },
-      {
-        id: "p2",
-        title: "Title 2"
-      }
-    ]
-  }
+    posts: (_, args, ctx) => {
+      return ctx.repositories.post.getAll(args.input);
+    },
+  },
 };

@@ -2,12 +2,12 @@ type Query {
   """
   Fetch posts by user
   """
-  posts(input: PostQueryInput): [Post]
+  posts(input: PostQueryInput!): [Post]
 }
 
 """
 Post query input options
 """
 input PostQueryInput {
-  categoryId: String
+  authorId: String
 }

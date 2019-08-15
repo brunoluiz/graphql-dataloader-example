@@ -1,7 +1,7 @@
 export const AuthorResolver = {
   Post: {
-    author: () => ({
-      name: "Steve Jobs"
-    })
-  }
+    author: (obj, args, ctx) => {
+      return ctx.repositories.author.get(obj.author_id);
+    },
+  },
 };
