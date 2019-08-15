@@ -1,0 +1,8 @@
+type Post {
+  id: String
+  title: String
+  slug: String
+  draft: Boolean
+  categories: [Category]
+  author: Author
+}
