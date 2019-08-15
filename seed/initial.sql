@@ -21,3 +21,4 @@ INSERT INTO posts_categories (category_id, post_id) VALUES (1, 3);
 INSERT INTO posts_categories (category_id, post_id) VALUES (2, 3);
 
 END;
+
