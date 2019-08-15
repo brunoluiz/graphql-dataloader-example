@@ -9,5 +9,5 @@ type Query {
 Post query input options
 """
 input PostQueryInput {
-  authorId: String
+  authorId: Int
 }
