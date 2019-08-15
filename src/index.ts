@@ -34,9 +34,11 @@ dotenv.config();
 
   const server = new ApolloServer({
     schema,
-    context: (): Context => ({
-      repositories,
-    }),
+    context: (): Context => {
+      return {
+        repositories,
+      };
+    },
   });
 
   // GraphQL server set 🚀
