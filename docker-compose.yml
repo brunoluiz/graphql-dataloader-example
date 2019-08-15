@@ -3,7 +3,7 @@ version: '2.3'
 services:
   # api:
     # build: .
-    # command: npm run watch
+    # command: npm run watch --silent
     # ports:
       # - "4000:4000"
       # - "9229:9229"

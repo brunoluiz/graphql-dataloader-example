@@ -3,6 +3,7 @@ import { resolvers, schemas, Context } from './graphql';
 import { PostSQLRepository } from './modules/posts';
 import { CategorySQLRepository } from './modules/categories';
 import { AuthorSQLRepository } from './modules/authors';
+import { log } from './log';
 import { Client } from 'pg';
 import * as Postgrator from 'postgrator';
 import * as dotenv from 'dotenv';
@@ -40,6 +41,6 @@ dotenv.config();
 
   // GraphQL server set 🚀
   server.listen().then(({ url }) => {
-    console.log(`🚀  Server ready at ${url}`);
+    log.info(`🚀  Server ready at ${url}`);
   });
 })();

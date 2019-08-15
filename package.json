@@ -7,7 +7,7 @@
     "start": "ts-node ./src/index.ts",
     "prettier": "prettier --write ./src/**/*",
     "gql-gen": "gql-gen --config codegen.yml",
-    "watch": "nodemon ./src/index.ts"
+    "watch": "nodemon --quiet ./src/index.ts"
   },
   "keywords": [],
   "author": "Bruno Luiz da Silva <contact@brunoluiz.net> (https://brunoluiz.net/)",
@@ -15,6 +15,7 @@
   "dependencies": {
     "@types/graphql": "^14.0.7",
     "apollo-server": "^2.4.6",
+    "bunyan": "^1.8.12",
     "dataloader": "^1.4.0",
     "dotenv": "^8.0.0",
     "graphql": "^14.1.1",
