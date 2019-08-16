@@ -1,4 +1,5 @@
 import { Client } from 'pg';
+import { log } from '../../log';
 
 export interface CategoryRepository {
   getByPost(postId: string);
@@ -8,6 +9,7 @@ export class CategorySQLRepository implements CategoryRepository {
   constructor(private db: Client) {}
 
   async getByPost(postId: string) {
+    log.info(`🔍 Searching categories for post ${postId} in database`);
     const { rows } = await this.db.query(
       `
       SELECT *
