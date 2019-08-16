@@ -26,17 +26,15 @@ dotenv.config();
     resolvers,
   });
 
-  const repositories = {
-    post: new PostSQLRepository(db),
-    category: new CategorySQLRepository(db),
-    author: new AuthorSQLRepository(db),
-  };
-
   const server = new ApolloServer({
     schema,
     context: (): Context => {
       return {
-        repositories,
+        repositories: {
+          post: new PostSQLRepository(db),
+          category: new CategorySQLRepository(db),
+          author: new AuthorSQLRepository(db),
+        },
       };
     },
   });
