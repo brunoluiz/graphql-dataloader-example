@@ -1,4 +1,5 @@
 import { Client } from 'pg';
+import * as DataLoader from 'dataloader';
 import { log } from '../../log';
 
 export interface AuthorRepository {
@@ -6,12 +7,21 @@ export interface AuthorRepository {
 }
 
 export class AuthorSQLRepository implements AuthorRepository {
-  constructor(private db: Client) {}
+  private authorGetLoader;
+
+  constructor(private db: Client) {
+    this.authorGetLoader = new DataLoader<number, any[]>(keys => this.getBatched(keys));
+  }
 
   async get(id: string) {
-    log.info(`🔍 Searching author ${id} in database`);
-    const { rows } = await this.db.query('SELECT * FROM authors WHERE id = $1', [id]);
+    return this.authorGetLoader.load(id);
+  }
 
-    return rows[0];
+  async getBatched(keys: number[]) {
+    log.info(`🔍 Searching authors ${keys} in database`);
+
+    const { rows } = await this.db.query('SELECT * FROM authors WHERE id = ANY($1::int[])', [keys]);
+
+    return rows;
   }
 }
